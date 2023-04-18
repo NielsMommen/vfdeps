@@ -383,7 +383,7 @@ clean::
 
 # ---- cap'n proto ----
 ## capnp tool to produce stubs code based on .capnp schema files, also installs the C++ plugin to create C++ stubs
-CAPNP_VERSION=0.10.3
+CAPNP_VERSION=0.10.4
 CAPNP_DIR=capnproto-c++-$(CAPNP_VERSION)
 CAPNP_BINARY=$(PREFIX)/bin/capnp
 
@@ -394,7 +394,7 @@ $(CAPNP_DIR): capnp-$(CAPNP_VERSION).tar.gz
 	tar xzf $<
 
 $(CAPNP_BINARY): | $(CAPNP_DIR)
-	cd $| && cmake -G Ninja -S . -B build -DWITH_OPENSSL=OFF -DCMAKE_INSTALL_PREFIX=$(PREFIX) -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF && cmake --build build --target install
+	cd $| && cmake -G Ninja -S . -B build -DWITH_OPENSSL=OFF -DWITHZLIB=OFF -DCMAKE_INSTALL_PREFIX=$(PREFIX) -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF && cmake --build build --target install
 
 capnp: $(CAPNP_BINARY)
 .PHONY: capnp
