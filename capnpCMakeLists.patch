@@ -1,3 +1,5 @@
+--- capnproto-c++-0.10.4/CMakeLists.txt	2023-04-13 16:14:33
++++ capnproto-c++-0.10.4.patch/CMakeLists.txt	2023-04-19 08:59:44
 @@ -46,6 +46,10 @@
  # define list of values GUI will offer for the variable
  set_property(CACHE WITH_OPENSSL PROPERTY STRINGS AUTO ON OFF)
