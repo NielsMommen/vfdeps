@@ -393,7 +393,7 @@ capnp-$(CAPNP_VERSION).tar.gz:
 $(CAPNP_DIR): capnp-$(CAPNP_VERSION).tar.gz
 	tar xzf $<
 	patch -u $(CAPNP_DIR)/CMakeLists.txt -i capnpCMakeLists.patch
-	patch -u $(CAPNP_DIR)/src/kj/CMakeLists.txt -i capnpCMakeLists.patch
+	patch -u $(CAPNP_DIR)/src/kj/CMakeLists.txt -i capnp_src_kjCMakeLists.patch
 
 $(CAPNP_BINARY): | $(CAPNP_DIR)
 	cd $| && cmake -G Ninja -S . -B build -DWITH_ZLIB=OFF -DWITH_OPENSSL=OFF -DCMAKE_INSTALL_PREFIX=$(PREFIX) -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF && cmake --build build --target install
